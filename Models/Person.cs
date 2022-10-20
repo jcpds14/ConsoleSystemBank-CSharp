@@ -8,7 +8,7 @@ namespace DotNet.Models
     public class Person
     {
         public string Name { get; private set; }
-        public string CPF { get; private set; }
+        public string Login { get; private set; }
         public string Password { get; private set; }
         public IAccount Account { get; set; }
 
@@ -16,9 +16,9 @@ namespace DotNet.Models
         {
             this.Name = name;
         }
-        public void SetCPF(string cpf)
+        public void SetLogin(string login)
         {
-            this.CPF = cpf;
+            this.Login = login;
         }
         public void SetPassword(string password)
         {

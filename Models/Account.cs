@@ -16,7 +16,7 @@ namespace DotNet.Models
         //Atributos
         public double Balance { get; protected set; }
         public string AgencyNumber { get; private set; }
-        public string AccountNumber { get; private set; }
+        public string AccountNumber { get; protected set; }
         public static int AcconuntNunberSequencial { get; private set; }
 
         public double BalanceInquiry()
