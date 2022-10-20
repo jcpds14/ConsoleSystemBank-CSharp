@@ -7,6 +7,11 @@ namespace DotNet.Models
 {
     public interface IAccount
     {
-        void Deposita()
+        void Deposit(double value);
+        bool WithDraw(double value);
+        double BalanceInquiry();
+        string GetBankCode();
+        string GetAgencyNumber();
+        string GetAccountNumber();
     }
 }
