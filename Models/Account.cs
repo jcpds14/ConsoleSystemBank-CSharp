@@ -10,7 +10,7 @@ namespace DotNet.Models
         //Construtor
         public Account()
         {
-            this.AccountNumber = "0001";
+            this.AgencyNumber = "0001";
             Account.AcconuntNunberSequencial++;//Não se usa o this pois é um construtor abstract
         }
         //Atributos
