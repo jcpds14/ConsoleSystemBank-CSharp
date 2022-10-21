@@ -170,6 +170,7 @@ namespace DotNet.Models
             switch (option)
             {
                 case "1":
+                    DepositWindow(person);
                     break;
                 case "2":
                     break;
@@ -190,6 +191,68 @@ namespace DotNet.Models
                     break;
             }
 
+        }
+
+        private static void DepositWindow(Person person)
+        {
+            Console.Clear();
+
+            WelcomeWindow(person);
+
+            Console.WriteLine("              Digite o valor de Depósito:                 ");
+            double value = double.Parse(Console.ReadLine());
+            Console.WriteLine("          ==================================              ");
+
+            person.Account.Deposit(value);
+
+            Console.Clear();
+
+            WelcomeWindow(person);
+            Console.WriteLine("                                                          ");
+            Console.WriteLine("                                                          ");
+            Console.WriteLine("             Depósito realizado com Sucesso!              ");
+            Console.WriteLine("           ===================================            ");
+            Console.WriteLine("                                                          ");
+            Console.WriteLine("                                                          ");
+
+            OptionBackToLoggedIn(person);
+        }
+
+        private static void OptionBackToLoggedIn(Person person)
+        {
+            Console.WriteLine("                Escolha uma opção abaixo                  ");
+            Console.WriteLine("           ===================================            ");
+            Console.WriteLine("             1 - Voltar para minha conta                  ");
+            Console.WriteLine("           ===================================            ");
+            Console.WriteLine("             2 - Sair                                     ");
+            Console.WriteLine("           ===================================            ");
+
+            string option = Console.ReadLine();
+
+            if (option == "1")
+                AccountLoggedInWindow(person);
+            else
+                MainWindow();
+        }
+
+        private static void OptionBackLoggedOff()
+        {
+            Console.WriteLine("                Escolha uma opção abaixo                  ");
+            Console.WriteLine("           ===================================            ");
+            Console.WriteLine("             1 - Voltar para o menu Principal             ");
+            Console.WriteLine("           ===================================            ");
+            Console.WriteLine("             2 - Sair                                     ");
+            Console.WriteLine("           ===================================            ");
+
+            string option = Console.ReadLine();
+
+            if (option == "1")
+                MainWindow();
+            else
+            {
+                Console.WriteLine("                Opção inválida!                       ");
+                Console.WriteLine("          ============================                ");
+            }
         }
     }
 }
