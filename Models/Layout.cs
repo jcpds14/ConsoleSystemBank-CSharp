@@ -259,8 +259,9 @@ namespace DotNet.Models
 
             WelcomeWindow(person);
 
-            Console.WriteLine($"           Seu saldo é: {person.Account.BalanceInquiry()}");
-            Console.WriteLine("          ===================================             ");
+            Console.WriteLine($"            Seu saldo é: {person.Account.BalanceInquiry()} ");
+            Console.WriteLine("           ===================================              ");
+            Console.WriteLine("                                                            ");
 
             OptionBackToLoggedIn(person);
         }

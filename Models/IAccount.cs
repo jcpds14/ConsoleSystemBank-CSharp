@@ -13,5 +13,6 @@ namespace DotNet.Models
         string GetBankCode();
         string GetAgencyNumber();
         string GetAccountNumber();
+        List<BankStatement> BankStatement();
     }
 }
