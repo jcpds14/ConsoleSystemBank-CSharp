@@ -40,7 +40,7 @@ namespace DotNet.Models
                 return false;
 
             DateTime dateNow = DateTime.Now;
-            this.Movements.Add(new BankStatement(dateNow, "Saque", value));
+            this.Movements.Add(new BankStatement(dateNow, "Saque", -value));
 
             this.Balance -= value;
             return true;

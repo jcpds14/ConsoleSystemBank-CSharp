@@ -179,6 +179,7 @@ namespace DotNet.Models
                     BalanceWindow(person);
                     break;
                 case "4":
+                    BankStatementWindow(person);
                     break;
                 case "5":
                     MainWindow();
@@ -262,6 +263,39 @@ namespace DotNet.Models
             Console.WriteLine($"            Seu saldo é: {person.Account.BalanceInquiry()} ");
             Console.WriteLine("           ===================================              ");
             Console.WriteLine("                                                            ");
+
+            OptionBackToLoggedIn(person);
+        }
+
+        private static void BankStatementWindow(Person person)
+        {
+            Console.Clear();
+
+            WelcomeWindow(person);
+
+            if (person.Account.BankStatement().Any())
+            {
+                double total = person.Account.BankStatement().Sum(x => x.Value);
+
+                foreach (BankStatement bankStatement in person.Account.BankStatement())
+                {
+                    Console.WriteLine("                                                          ");
+                    Console.WriteLine($"             Data da movimentação: {bankStatement.Date.ToString("dd/MM/yyyy HH:mm:ss")}  ");
+                    Console.WriteLine($"             Tipo da movimentação: {bankStatement.Description}  ");
+                    Console.WriteLine($"             Valor da movimentação: {bankStatement.Value}  ");
+                    Console.WriteLine("           ===================================            ");
+                }
+
+                Console.WriteLine("                                                          ");
+                Console.WriteLine("                                                          ");
+                Console.WriteLine($"                   SUB TOTAL: {total}                    ");
+                Console.WriteLine("           ===================================            ");
+            }
+            else
+            {
+                Console.WriteLine("               Não há extrato a ser exibido!              ");
+                Console.WriteLine("           ===================================            ");
+            }
 
             OptionBackToLoggedIn(person);
         }
