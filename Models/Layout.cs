@@ -173,8 +173,10 @@ namespace DotNet.Models
                     DepositWindow(person);
                     break;
                 case "2":
+                    WithDrawWindow(person);
                     break;
                 case "3":
+                    BalanceWindow(person);
                     break;
                 case "4":
                     break;
@@ -214,6 +216,51 @@ namespace DotNet.Models
             Console.WriteLine("           ===================================            ");
             Console.WriteLine("                                                          ");
             Console.WriteLine("                                                          ");
+
+            OptionBackToLoggedIn(person);
+        }
+
+        private static void WithDrawWindow(Person person)
+        {
+            Console.Clear();
+
+            WelcomeWindow(person);
+
+            Console.WriteLine("           Digite o valor que deseja sacar:               ");
+            double value = double.Parse(Console.ReadLine());
+            Console.WriteLine("          ==================================              ");
+
+            bool okWithDraw = person.Account.WithDraw(value);
+
+            Console.Clear();
+
+            WelcomeWindow(person);
+            Console.WriteLine("                                                          ");
+            Console.WriteLine("                                                          ");
+            if (okWithDraw)
+            {
+                Console.WriteLine("             Saque realizado com Sucesso!                 ");
+                Console.WriteLine("           ===================================            ");
+            }
+            else
+            {
+                Console.WriteLine("             Saldo Insuficiente!                          ");
+                Console.WriteLine("           ===================================            ");
+            }
+            Console.WriteLine("                                                          ");
+            Console.WriteLine("                                                          ");
+
+            OptionBackToLoggedIn(person);
+        }
+
+        private static void BalanceWindow(Person person)
+        {
+            Console.Clear();
+
+            WelcomeWindow(person);
+
+            Console.WriteLine($"           Seu saldo é: {person.Account.BalanceInquiry()}");
+            Console.WriteLine("          ===================================             ");
 
             OptionBackToLoggedIn(person);
         }
