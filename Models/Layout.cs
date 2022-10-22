@@ -27,7 +27,7 @@ namespace DotNet.Models
             Console.WriteLine("            ------------------------------               ");
             Console.WriteLine("            1 - Criar Conta                              ");
             Console.WriteLine("            ------------------------------               ");
-            Console.WriteLine("            2 - Entrar com Login e Senha                 ");
+            Console.WriteLine("            2 - Entrar com CPF e Senha                 ");
             Console.WriteLine("            ------------------------------               ");
 
             option = Console.ReadLine();
@@ -57,8 +57,8 @@ namespace DotNet.Models
             Console.WriteLine("            Digite seu nome:                             ");
             string name = Console.ReadLine();
             Console.WriteLine("            ------------------------------               ");
-            Console.WriteLine("            Digite seu Login:                            ");
-            string login = Console.ReadLine();
+            Console.WriteLine("            Digite seu CPF:                              ");
+            string cpf = Console.ReadLine();
             Console.WriteLine("            ------------------------------               ");
             Console.WriteLine("            Digite sua Senha:                            ");
             string password = Console.ReadLine();
@@ -68,7 +68,7 @@ namespace DotNet.Models
             Person person = new Person();
 
             person.SetName(name);
-            person.SetLogin(login);
+            person.SetCPF(cpf);
             person.SetPassword(password);
             //isso foi possível porque chekingAccount está vinvulado a Account
             //que está vinculado a IAccount
@@ -90,14 +90,14 @@ namespace DotNet.Models
             Console.Clear();
 
             Console.WriteLine("                                                         ");
-            Console.WriteLine("            Digite seu Login:                            ");
-            string login = Console.ReadLine();
+            Console.WriteLine("            Digite seu CPF:                            ");
+            string cpf = Console.ReadLine();
             Console.WriteLine("            ------------------------------               ");
             Console.WriteLine("            Digite sua Senha:                            ");
             string password = Console.ReadLine();
             Console.WriteLine("            ------------------------------               ");
             //Vai buscar o primeiro ou o único registro dentro da lista selecionada
-            Person person = persons.FirstOrDefault(x => x.Login == login && x.Password == password);
+            Person person = persons.FirstOrDefault(x => x.CPF == cpf && x.Password == password);
 
             if (person != null)
             {
@@ -109,7 +109,7 @@ namespace DotNet.Models
                 Console.Clear();
 
 
-                Console.WriteLine("                     Login Inválido!                   ");
+                Console.WriteLine("                     CPF Inválido!                   ");
                 Console.WriteLine("            ----------------------------------         ");
                 Thread.Sleep(1000);
                 Console.WriteLine("                Deseja tentar novamente?               ");
