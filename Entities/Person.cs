@@ -2,13 +2,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DotNet.Contracts;
 
-namespace DotNet.Models
+namespace DotNet.Entities
 {
     public class Person
     {
+        public int Id { get; set; }
         public string Name { get; private set; }
-        public string Login { get; private set; }
+        public string CPF { get; private set; }
         public string Password { get; private set; }
         public IAccount Account { get; set; }
 
@@ -16,9 +18,9 @@ namespace DotNet.Models
         {
             this.Name = name;
         }
-        public void SetLogin(string login)
+        public void SetCPF(string cpf)
         {
-            this.Login = login;
+            this.CPF = cpf;
         }
         public void SetPassword(string password)
         {
